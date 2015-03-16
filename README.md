@@ -1,10 +1,10 @@
 # ProjetTER
 Sémantique et Langue naturelle (n°46)
-proposé par Line Jakubiec-Jamet
+proposé par Line Jakubiec-Jamet     
 
-Lieu : LIF-Luminy
-Nombre d’étudiants souhaités: 1-3
-Etudiants affectés:
+Lieu : LIF-Luminy    
+Nombre d’étudiants souhaités: 1-3    
+Etudiants affectés:    
 
 Le sujet s’inscrit dans le domaine de la formalisation et du traitement des langues naturelles.
 Il s’intéresse en priorité à l’évaluation sémantique des mots rencontrés dans un texte
