@@ -1,1 +1,3 @@
-test: Projet TER
+test: Projet TER 
+
+SEMANTIQUE ET PROGRAMMATION LOGIQUE
