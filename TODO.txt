@@ -1,15 +1,15 @@
 Rappel du sujet :
 ==================
 
-Le sujet s’inscrit dans le domaine de la formalisation et du traitement des langues naturelles.
-Il s’intéresse en priorité à l’évaluation sémantique des mots rencontrés dans un texte
-écrit en français. Pour ce projet, il vous sera demandé de développer une interface Web qui
-permettra de réaliser de façon conviviale une classification des mots en fonction d’une description
-déjà définie dans un domaine donné. En d’autres termes, cela signifie qu’il faudra
-donner une étiquette sémantique à chaque mot d’un texte dans le but de pouvoir évaluer
-ensuite la sémantique des phrases entières voire du texte tout entier. Puis, des algorithmes
-spécifiques pourront être implémentés si il reste du temps.
-Le choix des outils sera discuté avec les étudiants (Java, Php-Mysql).
+Le sujet sâ€™inscrit dans le domaine de la formalisation et du traitement des langues naturelles.
+Il sâ€™intÃ©resse en prioritÃ© Ã  lâ€™Ã©valuation sÃ©mantique des mots rencontrÃ©s dans un texte
+Ã©crit en franÃ§ais. Pour ce projet, il vous sera demandÃ© de dÃ©velopper une interface Web qui
+permettra de rÃ©aliser de faÃ§on conviviale une classification des mots en fonction dâ€™une description
+dÃ©jÃ  dÃ©finie dans un domaine donnÃ©. En dâ€™autres termes, cela signifie quâ€™il faudra
+donner une Ã©tiquette sÃ©mantique Ã  chaque mot dâ€™un texte dans le but de pouvoir Ã©valuer
+ensuite la sÃ©mantique des phrases entiÃ¨res voire du texte tout entier. Puis, des algorithmes
+spÃ©cifiques pourront Ãªtre implÃ©mentÃ©s si il reste du temps.
+Le choix des outils sera discutÃ© avec les Ã©tudiants (Java, Php-Mysql).
 
 
 TODO :
@@ -18,12 +18,14 @@ TODO :
 1 - Preparer un document word (compte-rendu) avec :								EN COURS
 		- page de garde															OK
 		- introduction															OK
-		- si possible introduction des technologies à utiliser.					EN COURS
+		- si possible introduction des technologies Ã  utiliser.					EN COURS
 
-2 - Page d'explication sur ce qu'est " l'annotation sémantique "				EN COURS
+2 - Page d'explication sur ce qu'est " l'annotation sÃ©mantique "				EN COURS
 
-3 - Page du choix de définition d'un domaine particulier d'analyse sématique	EN COURS
+3 - Page du choix de dÃ©finition d'un domaine particulier d'analyse sÃ©matique	EN COURS
 
-4 - ......... a compléter
+4 - Repartition des taches EN COURS
 
+5 - Technologies utilisÃ©es et architecture EN COURS 
 
+6 - Code SOON
