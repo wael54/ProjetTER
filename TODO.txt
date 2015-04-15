@@ -15,17 +15,17 @@ Le choix des outils sera discuté avec les étudiants (Java, Php-Mysql).
 TODO :
 ======
 
-1 - Preparer un document word (compte-rendu) avec :								EN COURS
+1 - Preparer un document word (compte-rendu) avec :								OK
 		- page de garde															OK
 		- introduction															OK
-		- si possible introduction des technologies à utiliser.					EN COURS
+		- si possible introduction des technologies à utiliser.					OK
 
 2 - Page d'explication sur ce qu'est " l'annotation sémantique "				EN COURS
 
 3 - Page du choix de définition d'un domaine particulier d'analyse sématique	EN COURS
 
-4 - Repartition des taches EN COURS
+4 - Repartition des taches 														EN COURS
 
-5 - Technologies utilisées et architecture EN COURS 
+5 - Technologies utilisées et architecture 										OK
 
 6 - Code SOON
