@@ -37,3 +37,5 @@ session_start();
             echo "$result[0] : Pronom <br><br>";
             echo "$result[1] : Animal vertébré de type félin <br><br>";
             echo "$result[2] : Verbe <br><br>";
+            
+            
