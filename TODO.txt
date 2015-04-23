@@ -20,12 +20,19 @@ TODO :
 		- introduction															OK
 		- si possible introduction des technologies à utiliser.					OK
 
-2 - Page d'explication sur ce qu'est " l'annotation sémantique "				EN COURS
+2 - Page d'explication sur ce qu'est " l'annotation sémantique "				OK
 
-3 - Page du choix de définition d'un domaine particulier d'analyse sématique	EN COURS
+3 - Page du choix de définition d'un domaine particulier d'analyse sématique	EN COURS (animaux)
 
-4 - Repartition des taches 														EN COURS
+4 - Repartition des taches 														OK
 
 5 - Technologies utilisées et architecture 										OK
 
-6 - Code SOON
+6 - Code 																		EN COURS
+
+7- SCHEMA DU DOMAINE															EN COURS	=> URGENT
+
+8- SCHEMA BASE DE DONNEES														EN COURS	=> URGENT
+
+9- RECUPERER LEXIQUES ET DONNEES DU WEB POUR LA BDD								EN COURS	=> URGENT
+
