@@ -35,7 +35,13 @@ session_start()
                 <br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Analyser la phrase</button>
             </form>
-
+<?php
+            $base->exec("SET CHARACTER SET utf8");
+            $retour = $base->query('SELECT * FROM ani where id = 2');
+            $data = $retour->fetch();
+            echo $data;
+                   
+  ?>          
         </div> <!-- /container -->
     </body>
 </html>
