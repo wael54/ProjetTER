@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('connexion.php'); // Objet PDO
 ?>
 
 <!DOCTYPE html>
@@ -36,13 +37,6 @@ session_start();
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Analyser la phrase</button>
             </form>
             
-<?php
-            $res = $pdo->query('SELECT * FROM ani where id = 2');
-            $data = $retour->fetch();
-            echo $data;
-                   
-            
-  ?>          
-        </div> <!-- /container -->
+        </div> <!--/container -->
     </body>
 </html>
