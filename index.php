@@ -1,9 +1,10 @@
 <?php
 session_start();
+require_once('connexion.php'); // Objet PDO
 ?>
 
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,25 +25,19 @@ session_start();
         <div class="container">
             <div class="jumbotron">
                 <div class="container">
-                    <h1 class="text-center"><a href="index.php">Analyse SÃ©mantique et Langue naturelle</a></h1>
+                    <h1 class="text-center"><a href="index.php">Analyse Sémantique et Langue naturelle</a></h1>
                 </div>
             </div>
 
             <form class="text-center" action="traitement.php" method="post">    
                 <br>
-                <label for="inputText" class="sr-only">Texte Ã  analyser </label>
+                <label for="inputText" class="sr-only">Texte à analyser </label>
                 <input type="text" name="text" class="form-control" placeholder="Tapez votre texte" required autofocus>
                 <br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Analyser la phrase</button>
             </form>
             
-<?php
-            $res = $pdo->query('SELECT * FROM ani where id = 2');
-            $data = $retour->fetch();
-            echo $data;
-                   
-            
-  ?>          
-        </div> <!-- /container -->
+        </div> <!--/container -->
     </body>
 </html>
+
