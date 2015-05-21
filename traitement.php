@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config.php");
+require_once("connexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,16 +34,25 @@ require_once("config.php");
             echo "Texte analysé :  <input type='text' value='$text' disabled><br><br>";
 
 
-            $result_tab = explode(' ', $text);
+            $decomposition_text = explode(' ', $text);
 
-            $res = $pdo->query("SELECT * FROM ani WHERE name=$elements");
-            while ($resultat = $resultats->fetch(PDO::FETCH_OBJ)) {
-                echo 'Nom de l\'animal : ' . $ress->name . '<br>';
-            }
+            $res = $pdo->query("SELECT * FROM animaux WHERE nom='alapaga' ");
+            $res->execute();            
+            var_dump($res);
+            
+//            foreach ($decomposition_text As $elements) {
+//                echo $elements . "<BR>";
+//                if ($elements == )
+//                
+//            }
+            
 
-            Foreach ($result_tab As $elements) {
-                echo $elements . "<BR>";
-            }
+//            $res = $pdo->query("SELECT * FROM ani WHERE name=$elements");
+//            while ($resultat = $resultats->fetch(PDO::FETCH_OBJ)) {
+//                echo 'Nom de l\'animal : ' . $ress->name . '<br>';
+//            }
+
+            
          
 
 

@@ -22,7 +22,7 @@ TODO :
 
 2 - Page d'explication sur ce qu'est " l'annotation sémantique "				OK
 
-3 - Page du choix de définition d'un domaine particulier d'analyse sématique	EN COURS (animaux)
+3 - Page du choix de définition d'un domaine particulier d'analyse sématique	OK
 
 4 - Repartition des taches 														OK
 
@@ -36,8 +36,6 @@ TODO :
 	- MCD : A voir avec les tables definitives        +/- OK
 
 9- RECUPERER LEXIQUES ET DONNEES DU WEB POUR LA BDD								EN COURS	=> URGENT
-	- Animaux.sql 
-		- doublons: fait
-		- \n : fait 
-	- Verbe.sql: OK
+	- Animaux_NEW.Sql															OK
+	- Verbe.sql: 																OK
 
