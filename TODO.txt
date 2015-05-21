@@ -32,7 +32,12 @@ TODO :
 
 7- SCHEMA DU DOMAINE															EN COURS	=> URGENT
 
-8- SCHEMA BASE DE DONNEES														EN COURS	=> URGENT
+8- SCHEMA BASE DE DONNEES														OK
+	- MCD : A voir avec les tables definitives        +/- OK
 
 9- RECUPERER LEXIQUES ET DONNEES DU WEB POUR LA BDD								EN COURS	=> URGENT
+	- Animaux.sql 
+		- doublons: fait
+		- \n : fait 
+	- Verbe.sql: OK
 
