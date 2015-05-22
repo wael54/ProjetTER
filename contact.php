@@ -33,7 +33,7 @@
 	
 <!-- ===================================== END HEADER ===================================== -->
 
-<h4>Presenter par:</h4>
+<h4>Projet présenté par:</h4>
 <div class="col_12"  align="center">
     <div class="col_4">
       <h5>Waël KOUJUK </h5>

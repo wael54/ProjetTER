@@ -1,2 +1,4 @@
 *.tmp
 connexion.php
+include/include.php
+
