@@ -14,7 +14,7 @@
 
 <!-- Menu Horizontal -->
 <ul class="menu">
-<li class="current"><a href="index.php">Acceuil</a></li>
+<li class="current"><a href="index.php">Accueil</a></li>
 <li><a href="analyse.php"><span class="icon" data-icon="R"></span>Projet</a>
 	<ul>
 	<li><a href=""><i class="fa fa-download"></i><span> Docs</span></a>
