@@ -1,59 +1,96 @@
-<?php
-session_start();
-require_once("connexion.php");
-?>
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="">
+<html><head>
+        <title>Projet TER</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="" />
+        <meta name="copyright" content="" />
+        <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+        <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
 
-        <title>Projet_TER</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
+        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
+        <?php
+        session_start();
+        require_once('connexion.php'); // Objet PDO
+        ?>
     </head>
-
     <body>
 
-        <div class="container">
-            <div class="jumbotron">
-                <div class="container">
-                    <h1 class="text-center"><a href="index.php">Analyse Sémantique et Langue naturelle</a></h1>
-                </div>
-            </div>
+        <!-- Menu Horizontal -->
+        <ul class="menu">
+            <li class="current"><a href="index.php">Acceuil</a></li>
+            <li><a href="analyse.php"><span class="icon" data-icon="R"></span>Projet</a>
+                <ul>
+                    <li><a href=""><i class="fa fa-download"></i><span> Docs</span></a>
+                        <ul>
+                            <li><a href="approche.php"><i class="fa fa-file-text"></i> Description</a></li>
+                            <li><a href="annexes.php"><i class="fa fa-file-text"></i> Annexes</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"><a href="analyse.php"><i class="fa fa-file"></i> Application</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.php">Membres</a></li>
+        </ul>
 
-            <?php
-            $text = $_POST['text'];
+        <div class="grid">
 
-            echo "Texte analysé :  <input type='text' value='$text' disabled><br><br>";
+            <!-- ===================================== END HEADER ===================================== -->
 
 
-            $decomposition_text = explode(' ', $text);
 
-            $res = $pdo->query("SELECT * FROM animaux WHERE nom='alapaga' ");
-            $res->execute();            
-            var_dump($res);
-            
+            <div class="col_12">
+                <h5>Analyse du texte :</h5>
+                <p>Important: il est impératif que le texte comprend des mots du <code>domaine animale</code>.</p>
+
+                <div class="col_7">         
+                        <?php
+                        $text = $_POST['text'];
+                        echo "Texte analysé :  <input class='fa-check-circle' type='text' value='$text' size='75' disabled><br><br>";
+
+                        $decomposition_text = explode(' ', $text);
+
+//                        $res = $pdo->query("SELECT * FROM animaux WHERE nom='alapaga' ");
+//                        $res->execute();
+//                        var_dump($res);
+
 //            foreach ($decomposition_text As $elements) {
 //                echo $elements . "<BR>";
 //                if ($elements == )
 //                
 //            }
-            
-
 //            $res = $pdo->query("SELECT * FROM ani WHERE name=$elements");
 //            while ($resultat = $resultats->fetch(PDO::FETCH_OBJ)) {
 //                echo 'Nom de l\'animal : ' . $ress->name . '<br>';
 //            }
+                        ?>
+                </div>
 
-            
-         
+                <div class="col_5"><br><br>
+                    <h4>Résultat</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                        magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
+                </div>
+            </div>*
+            <div class="col_12">
+            </div>
+
+
+
+
+            <!-- ===================================== START FOOTER ===================================== -->
+            <div class="clear">
+            </div>
+            <div id="footer">
+                Aix Marseille Université - Faculté des sciences de Luminy<br>
+                Master informatique
+            </div>
+
+    </body></html>
+
+
 
 
 
