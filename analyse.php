@@ -10,7 +10,6 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
 
-<<<<<<< HEAD
 <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
 <?php
 session_start();
@@ -18,18 +17,10 @@ require_once('include/include.php');
 ?>
 </head>
 <body>
-=======
-        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
-        <?php
-        session_start();
-        require_once('include/include.php'); // Objet PDO
-        ?>
-        <!------------------------------------------>
+<!------------------------------------------>
         
     </head>
     <body>
->>>>>>> 398ed667ad2b14652c016e9fd49e338738da7d5c
-
         <!-- Menu Horizontal -->
         <ul class="menu">
             <li class="current"><a href="index.php">Acceuil</a></li>
