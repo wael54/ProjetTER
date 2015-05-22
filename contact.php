@@ -32,26 +32,22 @@
 <div class="grid">
 	
 <!-- ===================================== END HEADER ===================================== -->
-<div class="col_12">
-    <div class="center">
 
-    <h1 style="text-align: center">Sémantique et Langue naturelle</h1>
-    <br>
-    <hr>
-    
-	<h5 style="text-align: center">Bienvenue sur le site du projet</h5>
-	<p> Ceci est un projet dans le cadre de <code> Travail d'Etude et de Recherche</code><br> realisé par groupe d'étudiant de Master 1 informatique - Faculté des sciences de Luminy</p>
-    <p></p>
-  </div>
-    <h6 style="text-align:center">Veuillez nous retrouver: <a href="https://github.com/wael54/ProjetTER">ici</a> <span style="text-align:center"><br><i class="fa fa-github-square fa-3x" ></i></span></h6>
-
-</div><!-- END GRID -->
-
-<!-- ===================================== START FOOTER ===================================== -->
-<div class="clear">
+<h4>Presenter par:</h4>
+<div class="col_12"  align="center">
+    <div class="col_4">
+      <h5>Waël KOUJUK </h5>
+    </div>
+	<div class="col_4">
+        <h5>Kerisit Lucien </h5>
+    </div>
+	<div class="col_4">
+       <h5>Randriambololona Patty</h5>
+    </div>
 </div>
-<div id="footer">
+<address style="text-align:center"><p>
 Aix Marseille Université - Faculté des sciences de Luminy<br>Master informatique<br>2014 - 2015
-</div>
+</p>
+</address>
 
 </body></html>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("connexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,9 +34,31 @@ session_start();
             echo "Texte analysé :  <input type='text' value='$text' disabled><br><br>";
 
 
-            $result = explode(' ', $text);
-            echo "$result[0] : Pronom <br><br>";
-            echo "$result[1] : Animal vertébré de type félin <br><br>";
-            echo "$result[2] : Verbe <br><br>";
+            $decomposition_text = explode(' ', $text);
+
+            $res = $pdo->query("SELECT * FROM animaux WHERE nom='alapaga' ");
+            $res->execute();            
+            var_dump($res);
             
+//            foreach ($decomposition_text As $elements) {
+//                echo $elements . "<BR>";
+//                if ($elements == )
+//                
+//            }
             
+
+//            $res = $pdo->query("SELECT * FROM ani WHERE name=$elements");
+//            while ($resultat = $resultats->fetch(PDO::FETCH_OBJ)) {
+//                echo 'Nom de l\'animal : ' . $ress->name . '<br>';
+//            }
+
+            
+         
+
+
+
+
+
+
+
+

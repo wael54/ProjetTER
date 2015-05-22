@@ -9,6 +9,12 @@
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
+
+<!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
+<?php
+session_start();
+require_once('connexion.php'); // Objet PDO
+?>
 </head>
 <body>
 
@@ -33,25 +39,39 @@
 	
 <!-- ===================================== END HEADER ===================================== -->
 <div class="col_12">
-    <div class="center">
+<h5>Votre texte ici:</h5>
+<p>Important: il est impératif que le texte comprend des mots du <code>domaine animale</code>.</p>
+<p>Exemple: le chat miaule</p>
 
-    <h1 style="text-align: center">Sémantique et Langue naturelle</h1>
-    <br>
-    <hr>
-    
-	<h5 style="text-align: center">Bienvenue sur le site du projet</h5>
-	<p> Ceci est un projet dans le cadre de <code> Travail d'Etude et de Recherche</code><br> realisé par groupe d'étudiant de Master 1 informatique - Faculté des sciences de Luminy</p>
-    <p></p>
-  </div>
-    <h6 style="text-align:center">Veuillez nous retrouver: <a href="https://github.com/wael54/ProjetTER">ici</a> <span style="text-align:center"><br><i class="fa fa-github-square fa-3x" ></i></span></h6>
+<div class="col_7">
+	    <form class="text-center" action="traitement.php" method="post">
+        <label for="inputText" class="sr-only">Texte: </label>
+        <input name="text" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="75">
+       <br><br>
+       	 <br><button class="fa fa-check" type="submit" > Analyser la phrase</button>
+       
 
-</div><!-- END GRID -->
+    </form>
+</div>
+
+	<div class="col_5">
+	  <h4>Résultat</h4>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+	magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
+	</div>
+    </div>
+    <div class="col_12">
+    </div>
+	
+   
+
 
 <!-- ===================================== START FOOTER ===================================== -->
 <div class="clear">
 </div>
 <div id="footer">
-Aix Marseille Université - Faculté des sciences de Luminy<br>Master informatique<br>2014 - 2015
+Aix Marseille Université - Faculté des sciences de Luminy<br>
+Master informatique
 </div>
 
 </body></html>

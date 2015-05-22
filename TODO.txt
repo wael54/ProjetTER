@@ -22,7 +22,7 @@ TODO :
 
 2 - Page d'explication sur ce qu'est " l'annotation sémantique "				OK
 
-3 - Page du choix de définition d'un domaine particulier d'analyse sématique	EN COURS (animaux)
+3 - Page du choix de définition d'un domaine particulier d'analyse sématique	OK
 
 4 - Repartition des taches 														OK
 
@@ -32,7 +32,12 @@ TODO :
 
 7- SCHEMA DU DOMAINE															EN COURS	=> URGENT
 
-8- SCHEMA BASE DE DONNEES														EN COURS	=> URGENT
+8- SCHEMA BASE DE DONNEES														OK
+	- MCD : A voir avec les tables definitives        +/- OK
 
 9- RECUPERER LEXIQUES ET DONNEES DU WEB POUR LA BDD								EN COURS	=> URGENT
+	- Animaux_NEW.Sql															OK
+	- Verbe.sql: 																OK
 
+10- SITE DU PROJET:
+	- Page Analyse.php:  Site de l'application -----------> A voir de plus près
