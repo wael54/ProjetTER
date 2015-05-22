@@ -10,11 +10,13 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
 
-        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
+     <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
         <?php
         session_start();
-        require_once('connexion.php'); // Objet PDO
+        require_once('include/include.php'); // Objet PDO
         ?>
+        <!------------------------------------------>
+        
     </head>
     <body>
 
@@ -43,12 +45,13 @@
 
             <div class="col_12">
                 <h5>Analyse du texte :</h5>
-                <p>Important: il est impératif que le texte comprend des mots du <code>domaine animale</code>.</p>
 
-                <div class="col_7">         
+                <div class="col_6">     
+                        <h6>Texte analysé :</h6>
                         <?php
                         $text = $_POST['text'];
-                        echo "Texte analysé :  <input class='fa-check-circle' type='text' value='$text' size='75' disabled><br><br>";
+                        
+                        echo "$text <br><br>";
 
                         $decomposition_text = explode(' ', $text);
 
@@ -68,7 +71,7 @@
                         ?>
                 </div>
 
-                <div class="col_5"><br><br>
+                <div class="col_5">
                     <h4>Résultat</h4>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
                         magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
