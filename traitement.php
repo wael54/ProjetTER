@@ -22,7 +22,7 @@
 
         <!-- Menu Horizontal -->
         <ul class="menu">
-            <li class="current"><a href="index.php">Acceuil</a></li>
+            <li class="current"><a href="index.php">Accueil</a></li>
             <li><a href="analyse.php"><span class="icon" data-icon="R"></span>Projet</a>
                 <ul>
                     <li><a href=""><i class="fa fa-download"></i><span> Docs</span></a>
@@ -76,7 +76,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
                         magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
                 </div>
-            </div>*
+            </div>
             <div class="col_12">
             </div>
 
