@@ -39,3 +39,5 @@ TODO :
 	- Animaux_NEW.Sql															OK
 	- Verbe.sql: 																OK
 
+10- SITE DU PROJET:
+	- Page Analyse.php:  Site de l'application -----------> A voir de plus près
