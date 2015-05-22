@@ -13,7 +13,7 @@
 <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
 <?php
 session_start();
-require_once('connexion.php'); // Objet PDO
+require_once('include/include.php'); 
 ?>
 </head>
 <body>
