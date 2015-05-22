@@ -1,57 +1,43 @@
+<?php
+session_start();
+require_once('connexion.php'); // Objet PDO
+?>
+
 <!DOCTYPE html>
-<html><head>
-<title>Projet TER</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="" />
-<meta name="copyright" content="" />
-<link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-<link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
-</head>
-<body>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-<!-- Menu Horizontal -->
-<ul class="menu">
-<li class="current"><a href="index.php">Acceuil</a></li>
-<li><a href="analyse.php"><span class="icon" data-icon="R"></span>Projet</a>
-	<ul>
-	<li><a href=""><i class="fa fa-download"></i><span> Docs</span></a>
-		<ul>
-		<li><a href="approche.php"><i class="fa fa-file-text"></i> Description</a></li>
-        <li><a href="annexes.php"><i class="fa fa-file-text"></i> Annexes</a></li>
-		</ul>
-	</li>
-	<li class="divider"><a href="analyse.php"><i class="fa fa-file"></i> Application</a></li>
-	</ul>
-</li>
-<li><a href="contact.php">Membres</a></li>
-</ul>
+        <title>Projet_TER</title>
 
-<div class="grid">
-	
-<!-- ===================================== END HEADER ===================================== -->
-<div class="col_12">
-    <div class="center">
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <h1 style="text-align: center">Sémantique et Langue naturelle</h1>
-    <br>
-    <hr>
-    
-	<h5 style="text-align: center">Bienvenue sur le site du projet</h5>
-	<p> Ceci est un projet dans le cadre de <code> Travail d'Etude et de Recherche</code><br> realisé par groupe d'étudiant de Master 1 informatique - Faculté des sciences de Luminy</p>
-    <p></p>
-  </div>
-    <h6 style="text-align:center">Veuillez nous retrouver: <a href="https://github.com/wael54/ProjetTER">ici</a> <span style="text-align:center"><br><i class="fa fa-github-square fa-3x" ></i></span></h6>
+    </head>
 
-</div><!-- END GRID -->
+    <body>
 
-<!-- ===================================== START FOOTER ===================================== -->
-<div class="clear">
-</div>
-<div id="footer">
-Aix Marseille Université - Faculté des sciences de Luminy<br>Master informatique<br>2014 - 2015
-</div>
+        <div class="container">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="text-center"><a href="index.php">Analyse Sémantique et Langue naturelle</a></h1>
+                </div>
+            </div>
 
-</body></html>
+            <form class="text-center" action="traitement.php" method="post">    
+                <br>
+                <label for="inputText" class="sr-only">Texte à analyser </label>
+                <input type="text" name="text" class="form-control" placeholder="Tapez votre texte" required autofocus>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Analyser la phrase</button>
+            </form>
+            
+        </div> <!--/container -->
+    </body>
+</html>
+
