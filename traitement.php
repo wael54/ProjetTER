@@ -1,33 +1,27 @@
+<?php
+    session_start();
+    require_once('include/include.php'); // Objet PDO
+    // connexion temporaire pour table animaux.sql
+    $db_host = "localhost";
+    $db_name = "animaux";
+    $db_user = "root";
+    $db_pass = "";
+    $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+?>
 <!DOCTYPE html>
-<html><head>
+<html>
+    <head>
         <title>Projet TER</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="description" content="" />
         <meta name="copyright" content="" />
         <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-        <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />                          <!-- CUSTOM STYLES -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
-
-        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
-        <?php
-        session_start();
-        require_once('include/include.php'); // Objet PDO
-        // connexion temporaire pour table animaux.sql /////
-        $db_host = "localhost";
-        $db_name = "animaux";
-        $db_user = "root";
-        $db_pass = "";
-        $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // -------------------------------------------- //
-        ?>
-        <!------------------------------------------>
-
-
-
     </head>
     <body>
 
@@ -49,10 +43,6 @@
         </ul>
 
         <div class="grid">
-
-            <!-- ===================================== END HEADER ===================================== -->
-
-
 
             <div class="col_12">
                 <h5>Analyse du texte :</h5>
@@ -91,8 +81,6 @@
             <div class="col_12">
             </div>
 
-
-            <!-- ===================================== START FOOTER ===================================== -->
             <div class="clear">
             </div>
             <div id="footer">
