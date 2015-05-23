@@ -57,12 +57,12 @@
             <div class="col_12">
                 <h5>Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
-                        Les mots surlignés en <span style='color:green;font-weight:bold'>vert</span> concerne le domaine animal.</p>
+                    Les mots surlignés en <span style='color:green;font-weight:bold'>vert</span> concerne le domaine animal.</p>
 
-                <div class="col_6">     
+                <div class="col_6 barredroite">     
                     <h6>Texte analysé :</h6>
                     <?php
-                    $text = $_POST['text'];
+                    $text = addslashes($_POST['text']);
 
                     $decomposition_text = explode(' ', $text);
 
@@ -70,12 +70,11 @@
                         $query = $db->prepare("SELECT * FROM animaux WHERE nom = '$elements' ");
                         $query->execute();
                         $result = $query->fetch(PDO::FETCH_ASSOC);
-                        if ((strcasecmp($elements, $result["nom"])) < 1) {
+                        if ((strcasecmp(stripslashes($elements), $result["nom"])) < 1) {
                             $id = $result["id"];
-                            echo " <span  style='background-color:lightgreen;cursor:pointer' id='analyse' data-id='$id'> " . $elements . "</span> ";
-                        } 
-                        else
-                            echo $elements . " ";
+                            echo " <span  style='background-color:lightgreen;cursor:pointer' id='analyse' data-id='$id'> " . stripslashes($elements) . "</span> ";
+                        } else
+                            echo stripslashes($elements) . " ";
                     }
                     ?>
                 </div>
@@ -101,14 +100,11 @@
                 Master informatique
             </div>
 
-            <script>     
-                $('#analyse').on("click", function () {
-                    var plus = 'aaaaa';
-                    $(plus).insertAfter($('#nom'));
-                    $(plus).insertAfter($('#type'));
-                    $(plus).insertAfter($('#classe'));
-                    $(plus).insertAfter($('#description'));
-                });
+            <script>
+                $('#analyse').on("click", function () {        
+                                var id_word = $("#analyse").data('id');
+                                alert(id_word);
+                        });
             </script>
 
     </body>
