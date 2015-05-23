@@ -39,10 +39,10 @@
       <h5>Waël KOUJUK </h5>
     </div>
 	<div class="col_4">
-        <h5>Kerisit Lucien </h5>
+        <h5>Lucien KERISIT  </h5>
     </div>
 	<div class="col_4">
-       <h5>Randriambololona Patty</h5>
+       <h5>Patty RANDRIAMBOLOLONA </h5>
     </div>
 </div>
 <address style="text-align:center"><p>

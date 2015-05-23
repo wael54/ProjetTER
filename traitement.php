@@ -10,13 +10,24 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
 
-     <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
+        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
         <?php
         session_start();
         require_once('include/include.php'); // Objet PDO
+        // connexion temporaire pour table animaux.sql /////
+        $db_host = "localhost";
+        $db_name = "animaux";
+        $db_user = "root";
+        $db_pass = "";
+        $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // -------------------------------------------- //
         ?>
         <!------------------------------------------>
-        
+
+
+
     </head>
     <body>
 
@@ -47,40 +58,37 @@
                 <h5>Analyse du texte :</h5>
 
                 <div class="col_6">     
-                        <h6>Texte analysé :</h6>
-                        <?php
-                        $text = $_POST['text'];
-                        
-                        echo "$text <br><br>";
+                    <h6>Texte analysé :</h6>
+                    <?php
+                    $text = $_POST['text'];
 
-                        $decomposition_text = explode(' ', $text);
+                    $decomposition_text = explode(' ', $text);
 
-//                        $res = $pdo->query("SELECT * FROM animaux WHERE nom='alapaga' ");
-//                        $res->execute();
-//                        var_dump($res);
-
-//            foreach ($decomposition_text As $elements) {
-//                echo $elements . "<BR>";
-//                if ($elements == )
-//                
-//            }
-//            $res = $pdo->query("SELECT * FROM ani WHERE name=$elements");
-//            while ($resultat = $resultats->fetch(PDO::FETCH_OBJ)) {
-//                echo 'Nom de l\'animal : ' . $ress->name . '<br>';
-//            }
-                        ?>
+                    foreach ($decomposition_text As $elements) {
+                        $query = $db->prepare("SELECT * FROM animaux WHERE nom = '$elements' ");
+                        $query->execute();
+                        $result = $query->fetch(PDO::FETCH_ASSOC);
+                        if ((strcasecmp($elements, $result["nom"])) < 1) {
+                            $id = $result["id"];
+                            echo " <span style='background-color:lightgreen' id='analyse' data-id='$id'> " . $elements . "</span> ";
+                        } 
+                        else
+                            echo $elements . " ";
+                    }
+                    ?>
                 </div>
 
                 <div class="col_5">
-                    <h4>Résultat</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-                        magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
+                    <h6>Résultat</h6>
+                    <p id="nom" class="nom"></p>
+                    <p id="type" class="type"></p>
+                    <p id="classe" class="classe"></p>
+                    <p id="description" class="description"></p>
                 </div>
             </div>
+
             <div class="col_12">
             </div>
-
-
 
 
             <!-- ===================================== START FOOTER ===================================== -->
@@ -91,7 +99,20 @@
                 Master informatique
             </div>
 
-    </body></html>
+            <script>
+                
+                $('#analyse').on("click", function () {
+                    var plus = 'aaaaa';
+                    $(plus).insertAfter($('#nom'));
+                    $(plus).insertAfter($('#type'));
+                    $(plus).insertAfter($('#classe'));
+                    $(plus).insertAfter($('#description'));
+                });
+            </script>
+
+    </body>
+
+</html>
 
 
 
