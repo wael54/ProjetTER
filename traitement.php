@@ -56,6 +56,8 @@
 
             <div class="col_12">
                 <h5>Analyse du texte :</h5>
+                <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
+                        Les mots surlignés en <span style='color:green;font-weight:bold'>vert</span> concerne le domaine animal.</p>
 
                 <div class="col_6">     
                     <h6>Texte analysé :</h6>
@@ -70,7 +72,7 @@
                         $result = $query->fetch(PDO::FETCH_ASSOC);
                         if ((strcasecmp($elements, $result["nom"])) < 1) {
                             $id = $result["id"];
-                            echo " <span style='background-color:lightgreen' id='analyse' data-id='$id'> " . $elements . "</span> ";
+                            echo " <span  style='background-color:lightgreen;cursor:pointer' id='analyse' data-id='$id'> " . $elements . "</span> ";
                         } 
                         else
                             echo $elements . " ";
@@ -99,8 +101,7 @@
                 Master informatique
             </div>
 
-            <script>
-                
+            <script>     
                 $('#analyse').on("click", function () {
                     var plus = 'aaaaa';
                     $(plus).insertAfter($('#nom'));
