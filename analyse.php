@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html><head>
-        <title>Projet TER</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="" />
-        <meta name="copyright" content="" />
-        <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-        <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
-
 <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
 <?php
 session_start();
 require_once('include/include.php'); 
 ?>
-</head>
-<body>
-<!------------------------------------------>
-        
-    </head>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Projet TER</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="copyright" content="" />
+		<link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+		<link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
+	</head>
     <body>
         <!-- Menu Horizontal -->
         <ul class="menu">
@@ -40,20 +37,17 @@ require_once('include/include.php');
 
         <div class="grid">
 
-            <!-- ===================================== END HEADER ===================================== -->
             <div class="col_12">
                 <h5>Analyse du texte :</h5>
-                <p>Important: il est impératif que le texte comprend des mots du <code>domaine animale</code>.</p>
+                <p>Important: il est impératif que le texte comprenne des mots du <code>domaine animal</code>.</p>
                 <p>Exemple: le chat miaule</p>
 
                 <div class="col_7">
                     <form class="text-center" action="traitement.php" method="post">
                         <label for="inputText" class="sr-only">Texte: </label>
-                        <input name="text" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="75">
+                        <input id="inputText" name="inputText" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="75">
                         <br><br>
                         <br><button class="fa fa-check" type="submit" > Analyser la phrase</button>
-
-
                     </form>
                 </div>
 
@@ -64,15 +58,12 @@ require_once('include/include.php');
             <div class="col_12">
             </div>
 
-
-
-
-            <!-- ===================================== START FOOTER ===================================== -->
             <div class="clear">
             </div>
             <div id="footer">
                 Aix Marseille Université - Faculté des sciences de Luminy<br>
                 Master informatique
             </div>
-
-    </body></html>
+		</div>
+    </body>
+</html>
