@@ -29,15 +29,17 @@ TODO :
 5 - Technologies utilisées et architecture 										OK
 
 6 - Code 																		EN COURS
+	- Requêtes SQL pour recuperer les données de la base   -------------------->EN COURS
+	- Requetes PHP pour afficher les résulats obtenus dans analyse.php  ------->EN COURS
 
 7- SCHEMA DU DOMAINE															EN COURS	=> URGENT
 
 8- SCHEMA BASE DE DONNEES														OK
-	- MCD : A voir avec les tables definitives        +/- OK
+	- MCD : A voir avec les tables definitives        							OK (+/-)
 
 9- RECUPERER LEXIQUES ET DONNEES DU WEB POUR LA BDD								EN COURS	=> URGENT
 	- Animaux_NEW.Sql															OK
-	- Verbe.sql: 																OK
+	- Verbe.sql 																OK
 
 10- SITE DU PROJET:
-	- Page Analyse.php:  Site de l'application -----------> A voir de plus près
+	- Page Analyse.php: Site de l'application						----------->EN COURS (A voir de plus près)

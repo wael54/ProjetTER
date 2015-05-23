@@ -1,59 +1,117 @@
-<?php
-session_start();
-require_once("connexion.php");
-?>
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="">
+<html><head>
+        <title>Projet TER</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="" />
+        <meta name="copyright" content="" />
+        <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+        <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
 
-        <title>Projet_TER</title>
+        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
+        <?php
+        session_start();
+        require_once('include/include.php'); // Objet PDO
+        // connexion temporaire pour table animaux.sql /////
+        $db_host = "localhost";
+        $db_name = "animaux";
+        $db_user = "root";
+        $db_pass = "";
+        $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        // -------------------------------------------- //
+        ?>
+        <!------------------------------------------>
+
+
 
     </head>
-
     <body>
 
-        <div class="container">
-            <div class="jumbotron">
-                <div class="container">
-                    <h1 class="text-center"><a href="index.php">Analyse Sémantique et Langue naturelle</a></h1>
+        <!-- Menu Horizontal -->
+        <ul class="menu">
+            <li class="current"><a href="index.php">Accueil</a></li>
+            <li><a href="analyse.php"><span class="icon" data-icon="R"></span>Projet</a>
+                <ul>
+                    <li><a href=""><i class="fa fa-download"></i><span> Docs</span></a>
+                        <ul>
+                            <li><a href="approche.php"><i class="fa fa-file-text"></i> Description</a></li>
+                            <li><a href="annexes.php"><i class="fa fa-file-text"></i> Annexes</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"><a href="analyse.php"><i class="fa fa-file"></i> Application</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.php">Membres</a></li>
+        </ul>
+
+        <div class="grid">
+
+            <!-- ===================================== END HEADER ===================================== -->
+
+
+
+            <div class="col_12">
+                <h5>Analyse du texte :</h5>
+                <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
+                    Les mots surlignés en <span style='color:green;font-weight:bold'>vert</span> concerne le domaine animal.</p>
+
+                <div class="col_6 barredroite">     
+                    <h6>Texte analysé :</h6>
+                    <?php
+                    $text = addslashes($_POST['text']);
+
+                    $decomposition_text = explode(' ', $text);
+
+                    foreach ($decomposition_text As $elements) {
+                        $query = $db->prepare("SELECT * FROM animaux WHERE nom = '$elements' ");
+                        $query->execute();
+                        $result = $query->fetch(PDO::FETCH_ASSOC);
+                        if ((strcasecmp(stripslashes($elements), $result["nom"])) < 1) {
+                            $id = $result["id"];
+                            echo " <span  style='background-color:lightgreen;cursor:pointer' id='analyse' data-id='$id'> " . stripslashes($elements) . "</span> ";
+                        } else
+                            echo stripslashes($elements) . " ";
+                    }
+                    ?>
+                </div>
+
+                <div class="col_5">
+                    <h6>Résultat</h6>
+                    <p id="nom" class="nom"></p>
+                    <p id="type" class="type"></p>
+                    <p id="classe" class="classe"></p>
+                    <p id="description" class="description"></p>
                 </div>
             </div>
 
-            <?php
-            $text = $_POST['text'];
-
-            echo "Texte analysé :  <input type='text' value='$text' disabled><br><br>";
+            <div class="col_12">
+            </div>
 
 
-            $decomposition_text = explode(' ', $text);
+            <!-- ===================================== START FOOTER ===================================== -->
+            <div class="clear">
+            </div>
+            <div id="footer">
+                Aix Marseille Université - Faculté des sciences de Luminy<br>
+                Master informatique
+            </div>
 
-            $res = $pdo->query("SELECT * FROM animaux WHERE nom='alapaga' ");
-            $res->execute();            
-            var_dump($res);
-            
-//            foreach ($decomposition_text As $elements) {
-//                echo $elements . "<BR>";
-//                if ($elements == )
-//                
-//            }
-            
+            <script>
+                $('#analyse').on("click", function () {        
+                                var id_word = $("#analyse").data('id');
+                                alert(id_word);
+                        });
+            </script>
 
-//            $res = $pdo->query("SELECT * FROM ani WHERE name=$elements");
-//            while ($resultat = $resultats->fetch(PDO::FETCH_OBJ)) {
-//                echo 'Nom de l\'animal : ' . $ress->name . '<br>';
-//            }
+    </body>
 
-            
-         
+</html>
+
+
 
 
 

@@ -14,7 +14,7 @@
 
 <!-- Menu Horizontal -->
 <ul class="menu">
-<li class="current"><a href="index.php">Acceuil</a></li>
+<li class="current"><a href="index.php">Accueil</a></li>
 <li><a href="analyse.php"><span class="icon" data-icon="R"></span>Projet</a>
 	<ul>
 	<li><a href=""><i class="fa fa-download"></i><span> Docs</span></a>
@@ -33,16 +33,16 @@
 	
 <!-- ===================================== END HEADER ===================================== -->
 
-<h4>Presenter par:</h4>
+<h4>Projet présenté par:</h4>
 <div class="col_12"  align="center">
     <div class="col_4">
       <h5>Waël KOUJUK </h5>
     </div>
 	<div class="col_4">
-        <h5>Kerisit Lucien </h5>
+        <h5>Lucien KERISIT  </h5>
     </div>
 	<div class="col_4">
-       <h5>Randriambololona Patty</h5>
+       <h5>Patty RANDRIAMBOLOLONA </h5>
     </div>
 </div>
 <address style="text-align:center"><p>
