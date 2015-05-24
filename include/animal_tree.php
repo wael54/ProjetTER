@@ -59,5 +59,23 @@
 			$result = $query->fetch(PDO::FETCH_ASSOC);
 			return ($result == FALSE) ? FALSE : $result['ID'];
 		}
+
+		/* Renvoie le nom, la description et les parents de l'element d'id donné en paramètre */
+		public function getInfosOn($id) {
+
+			$mot = $this->pdo->prepare("SELECT BG, BD, NOM, DESCRIPTION FROM ANIMAL_TREE WHERE ID= ?");
+			$mot->execute(array($id));
+			$mot = $mot->fetch(PDO::FETCH_ASSOC);
+			if($mot == FALSE) 
+				return FALSE;
+
+			$parents = $this->pdo->prepare("SELECT NOM FROM ANIMAL_TREE WHERE BG < ? AND BD > ?");
+			$parents->execute(array($mot['BG'], $mot['BD']));
+			$parents = $parents->fetchAll(PDO::FETCH_COLUMN, 0);
+			
+			$retour = array('nom' => $mot['NOM'], 'description' => $mot['DESCRIPTION'], 'parents'=> $parents);
+			return $retour;
+		}
+
 	}
 ?>

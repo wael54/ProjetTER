@@ -45,7 +45,7 @@ require_once('include/include.php');
                 <div class="col_7">
                     <form class="text-center" action="traitement.php" method="post">
                         <label for="inputText" class="sr-only">Texte: </label>
-                        <input id="inputText" name="inputText" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="75">
+                        <input id="inputText" name="text" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="75">
                         <br><br>
                         <br><button class="fa fa-check" type="submit" > Analyser la phrase</button>
                     </form>
