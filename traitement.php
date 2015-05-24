@@ -11,7 +11,7 @@
 
     $retour = "";
 
-    $decomposition_text = preg_split('/((^\p{P}+)|(\p{P}*\s+\p{P}*)|(\p{P}+$))/', strtolower($text), -1, PREG_SPLIT_NO_EMPTY);
+    $decomposition_text = preg_split('/((\p{P}*\s+\p{P}*)|(^\p{P}+)|(\p{P}+$))/', strtolower($text), -1, PREG_SPLIT_NO_EMPTY);
 
     foreach ($decomposition_text as $mot) 
     {
