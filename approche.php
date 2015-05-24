@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="copyright" content="" />
         <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-        <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />                          <!-- CUSTOM STYLES -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
     </head>
@@ -30,15 +30,12 @@
         </ul>
 
         <div class="grid">
-
-            <!-- ===================================== END HEADER ===================================== -->
             <div class="col_12">
                 <h3>Description du projet:</h3>
                 <blockquote class="small" >
                     <p>Le sujet s’inscrit dans le domaine de la formalisation et du traitement des langues naturelles. Il s’intéresse en priorité à l’évaluation sémantique des mots rencontrés dans un texte écrit en français.</p><p> L'application analyse les mots en fonction d’une description déjà définie dans le <code>domaine animal</code>.</p>
                     <p>En d’autres termes, chaque mot a son étiquette sémantique dans le but de pouvoir évaluer ensuite la sémantique des phrases entières voire du texte tout entier.
                     <p>L'application a été developpé en <code>PHP/Mysql</code></p>
-                    </p>
                 </blockquote>
             </div>
             <div class="col_6">
@@ -107,13 +104,12 @@
                     <li>gestion des étiquettes par le calcul de cliques. Il convient de détailler chacune de ces étapes ; nous précisons auparavant les données et les outils utilisés.</li>
                 </ul>
             </div>
-
-            <!-- ===================================== START FOOTER ===================================== -->
             <div class="clear"></div>
             <div id="footer">
                 Aix Marseille Université - Faculté des sciences de Luminy<br>
                 Master informatique<br>
                 2014 - 2015
             </div>
-
-    </body></html>
+        </div>
+    </body>
+    </html>

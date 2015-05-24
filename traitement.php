@@ -1,33 +1,43 @@
+<?php
+    set_include_path('.');
+    require_once('./include/include.php');
+    $connexion = new animal_tree();
+
+    if(!isset($_POST['text'])) {
+        header ('Location:analyse.php');
+    }
+
+    $text = htmlspecialchars($_POST['text']);
+
+    $retour = "";
+
+    $decomposition_text = preg_split('/((^\p{P}+)|(\p{P}*\s+\p{P}*)|(\p{P}+$))/', strtolower($text), -1, PREG_SPLIT_NO_EMPTY);
+
+    foreach ($decomposition_text as $mot) 
+    {
+        if(($result = $connexion->getId($mot)) !== FALSE) // Le mot est présent dans animal_tree
+        {
+            $retour .= "<span class=\"highlighted\" data-id=\"".$result."\">".$mot."</span> ";
+        }
+        else // On reporte le mot sans le souligner
+        { 
+            $retour .= htmlentities($mot)." ";
+        }
+    }
+
+?>
 <!DOCTYPE html>
-<html><head>
+<html>
+    <head>
         <title>Projet TER</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="description" content="" />
         <meta name="copyright" content="" />
         <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-        <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />                          <!-- CUSTOM STYLES -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
-
-        <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
-        <?php
-        session_start();
-        require_once('include/include.php'); // Objet PDO
-        // connexion temporaire pour table animaux.sql /////
-        $db_host = "localhost";
-        $db_name = "animaux";
-        $db_user = "root";
-        $db_pass = "";
-        $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // -------------------------------------------- //
-        ?>
-        <!------------------------------------------>
-
-
-
     </head>
     <body>
 
@@ -50,10 +60,6 @@
 
         <div class="grid">
 
-            <!-- ===================================== END HEADER ===================================== -->
-
-
-
             <div class="col_12">
                 <h5>Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
@@ -61,38 +67,29 @@
 
                 <div class="col_6 barredroite">     
                     <h6>Texte analysé :</h6>
-                    <?php
-                    $text = addslashes($_POST['text']);
-
-                    $decomposition_text = explode(' ', $text);
-
-                    foreach ($decomposition_text As $elements) {
-                        $query = $db->prepare("SELECT * FROM animaux WHERE nom = '$elements' ");
-                        $query->execute();
-                        $result = $query->fetch(PDO::FETCH_ASSOC);
-                        if ((strcasecmp(stripslashes($elements), $result["nom"])) < 1) {
-                            $id = $result["id"];
-                            echo " <span  style='background-color:lightgreen;cursor:pointer' id='analyse' data-id='$id'> " . stripslashes($elements) . "</span> ";
-                        } else
-                            echo stripslashes($elements) . " ";
-                    }
-                    ?>
+                    <?= $retour ?>
                 </div>
 
-                <div class="col_5">
-                    <h6>Résultat</h6>
-                    <p id="nom" class="nom"></p>
-                    <p id="type" class="type"></p>
-                    <p id="classe" class="classe"></p>
-                    <p id="description" class="description"></p>
+                <div class="col_5" id="container_result">
+                    <h3>Résultat</h6>
+                    <div id="nodetails">
+                        <i class="fa fa-hand-o-up"></i> Cliquez sur un élément pour afficher plus de détails
+                    </div>
+                    <div id="loading_icon" style="display: none">
+                        <img src="img/ajax-loader.gif" alt="Chargement."/>
+                    </div>
+                    <div id="details" style="display: none">
+                        <h5 id="nom"></h5>
+                        <p>Type : <span id="type"></span></p>
+                        <p>Description : <span id="description"></span></p>
+                    </div>
+
                 </div>
             </div>
 
             <div class="col_12">
             </div>
 
-
-            <!-- ===================================== START FOOTER ===================================== -->
             <div class="clear">
             </div>
             <div id="footer">
@@ -100,11 +97,42 @@
                 Master informatique
             </div>
 
-            <script>
-                $('#analyse').on("click", function () {        
-                                var id_word = $("#analyse").data('id');
-                                alert(id_word);
+            <script type="text/javascript">
+                $(document).ready(function() {
+        
+                    $('.highlighted ').click(function(){
+
+                        if($("#nodetails").is(":visible")) { 
+                            $("#nodetails").css("display", "none");
+                        } 
+
+                        $.ajax({
+                           url: "getWord.php",
+                           data: {
+                              id: $(this).data("id")
+                           },
+                           type: 'POST',
+                           dataType: 'json',
+                           beforeSend: function(xhr){
+                                $("#details").hide();
+                                $("#loading_icon").show();
+                           },
+                           success: function(data){
+                                $("#loading_icon").hide();
+                               if (data) {               
+                                    $("#nom").text(data.nom);
+                                    $("#description").text(data.description);
+                                    $("#type").text(data.parents);
+                                }
+                                $("#details").show();
+                           },
+                           complete: function(xhr, textStatus){
+                                 
+                           }
                         });
+
+                    });
+                });
             </script>
 
     </body>
