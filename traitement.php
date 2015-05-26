@@ -59,9 +59,19 @@ foreach ($decomposition_text as $mot) {
                 <h5 class="strong">Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
                     Les mots surlignés en <span style='color:green;font-weight:bold'>vert</span> concerne le domaine animal.</p>
-                <hr />
+                    
+               <hr class="alt2" /> 
+               <div class="col_8">                   
+               <div class="center">
+                  <ul class="button-bar">
+                    <li><a href="analyse.php"><i class="fa fa-pencil"></i> Modifier</a></li>
+                    <li><a href="analyse.php"><i class="fa fa-file-text"></i> Nouveau traitement</a></li>
+                   </ul>
+               </div>
+				</div>
+
                 <div class="col_6 barredroite">     
-                    <h6 class="strong">Texte analysé :</h6>
+                  <h6 class="strong">Texte analysé :</h6>
                     <?= $retour ?>
                 </div>
 
