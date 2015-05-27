@@ -67,12 +67,12 @@
 				<div class="center">
 
 				<h1 style="text-align: center">Sémantique et Langue naturelle</h1>
-				<h5 style="text-align: center"><code>Domaine animale</code></h5>
+				<h5 style="text-align: center"><code>Domaine animal</code></h5>
 				<br>
 				<hr.>
 
 				<h5 style="text-align: center">Bienvenue sur le site du projet</h5>
-				<p> Ceci est un projet dans le cadre de <code> Travail d'Etude et de Recherche</code><br> realisé par un groupe d'étudiant de Master 1 informatique - Faculté des sciences de Luminy</p>
+				<p> Ceci est un projet dans le cadre de <code> Travail d'Etude et de Recherche</code><br> realisé par un groupe d'étudiants de Master 1 informatique - Faculté des sciences de Luminy</p>
 				<p></p>
 			  </div>
 			  <br><br>

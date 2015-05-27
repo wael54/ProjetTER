@@ -1,4 +1,10 @@
 <?php
+
+/*
+** Script pour récupérer du fichier source.csv (le DEM dans notre cas) uniquement les animaux
+** et les renvoie dans un nouveau .csv plus léger avec moins d'informations.
+*/
+
 header('Content-Type: text/html; charset=UTF-8');
 
 if (($handle = fopen("source_mots.csv", "r")) !== FALSE) {

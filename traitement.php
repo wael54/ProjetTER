@@ -58,7 +58,7 @@ foreach ($decomposition_text as $mot) {
             <div class="col_12">
                 <h5 class="strong">Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
-                    Les mots surlignés en <span style='color:green;font-weight:bold'>vert</span> concerne le domaine animal.</p>
+                    Les mots surlignés en <span class="highlighted">vert</span> concerne le domaine animal.</p>
                     
                <hr class="alt2" /> 
                <div class="col_8">                   
@@ -105,7 +105,7 @@ foreach ($decomposition_text as $mot) {
             <script type="text/javascript">
                 $(document).ready(function () {
 
-                    $('.highlighted ').click(function () {
+                    $('.barredroite > .highlighted ').click(function () {
 
                         if ($("#nodetails").is(":visible")) {
                             $("#nodetails").css("display", "none");
