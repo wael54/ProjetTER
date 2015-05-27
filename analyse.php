@@ -38,22 +38,18 @@ require_once('include/include.php');
         <div class="grid">
 
             <div class="col_12">
-                <h5>Analyse du texte :</h5>
+                <h5 class="strong">Analyse de texte :</h5>
                 <p>Important: il est impératif que le texte comprenne des mots du <code>domaine animal</code>.</p>
                 <p>Exemple: le chat miaule</p>
-
+                <hr />
                 <div class="col_7">
                     <form class="text-center" action="traitement.php" method="post">
-                        <label for="inputText" class="sr-only">Texte: </label>
-                        <input id="inputText" name="text" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="75">
+                        <label for="inputText" class="sr-only strong">Tapez votre texte: </label><br><br>
+                        <input id="inputText" name="text" type="text" autofocus required class="fa-check-circle" placeholder="Tapez votre texte" size="85">
                         <br><br>
-                        <br><button class="fa fa-check" type="submit" > Analyser la phrase</button>
+                        <br><button class="fa fa-check medium green" type="submit" > Analyser la phrase</button>
                     </form>
-                </div>
-
-                <div class="col_5"><br><br>
-                    
-                </div>
+                </div
             </div>
             <div class="col_12">
             </div>
@@ -63,7 +59,7 @@ require_once('include/include.php');
             <div id="footer">
                 Aix Marseille Université - Faculté des sciences de Luminy<br>
                 Master informatique
-            </div>
+            </div
 		</div>
     </body>
 </html>
