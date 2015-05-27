@@ -1,5 +1,11 @@
 <?php
 
+/*
+** Script reprenant le fichier généré par csv_filter.php et important toutes les données dans une table de notre BD
+** On ne soucie pas de la procédure pour créer la représentation intervallaire, 
+** la fonction insert() de include/animal_tree.php s'occupe de faire les transactions adéquates.
+*/
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 header('Content-Type: text/html; charset=UTF-8');
