@@ -39,7 +39,7 @@ require_once('include/include.php');
 
             <div class="col_12">
                 <h5 class="strong">Analyse de texte :</h5>
-                <p>Important: il est impératif que le texte comprenne des mots du <code>domaine animal</code>.</p>
+                <p>Important: L'application surligne uniquement les mots du <code>domaine animal</code>.</p>
                 <p>Exemple: le chat miaule</p>
                 <hr />
                 <div class="col_7">
