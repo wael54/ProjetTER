@@ -30,38 +30,9 @@
 		</ul>
 		<div class="center">
 		<div class="col_2"></div>
-		<div class="col_8" >
-			<!-- Slideshow -->
-			<ul class="slideshow">
-				<li><img src="img/img_ (4).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (3).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (8).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (16).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (14).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (2).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (5).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (13).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (6).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (24).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (9).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (11).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (22).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (12).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (1).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (15).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (17).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (18).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (19).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (20).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (21).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (23).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (25).jpg" width="550" height="350"/></li>
-				<li><img src="img/img_ (26).jpg" width="550" height="350"/></li>
+		
+		</div>
 
-			</ul>
-		</div>
-		</div>
-		<hr class="alt2">
 		<div class="grid">
 			<div class="col_12">
 				<div class="center">
