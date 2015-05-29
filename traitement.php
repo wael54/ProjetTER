@@ -59,9 +59,9 @@ foreach ($decomposition_text as $mot) {
                 <h5 class="strong">Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
                     Les mots surlignés en <span class="highlighted">vert</span> concerne le domaine animal.</p>
-                    
-               <hr class="alt2" /> 
-               <div class="col_8">                   
+
+               <hr class="alt2" />
+               <div class="col_8">
                <div class="center">
                   <ul class="button-bar">
                     <li><a href="analyse.php"><i class="fa fa-pencil"></i> Modifier</a></li>
@@ -70,7 +70,7 @@ foreach ($decomposition_text as $mot) {
                </div>
 				</div>
 
-                <div class="col_6 barredroite">     
+                <div class="col_6 barredroite">
                   <h6 class="strong">Texte analysé :</h6>
                     <?= $retour ?>
                 </div>
@@ -87,6 +87,12 @@ foreach ($decomposition_text as $mot) {
                             <h5 id="nom"></h5>
                             <p>Type : <span id="type"></span></p>
                             <p>Description : <span id="description"></span></p>
+                        </div>
+
+                        <div id="correction" style="display: none">
+                            <h5 id="verbe"></h5>
+                            <p>Cri de l'animal: <span id="verbe"></span></p>
+                            <p>Sens : <span id="Sens"></span></p>
                         </div>
 
                 </div>
@@ -128,6 +134,30 @@ foreach ($decomposition_text as $mot) {
                                     $("#nom").text(data.nom);
                                     $("#description").text(data.description);
                                     $("#type").text(data.parents);
+                                }
+                                $("#details").show();
+                            },
+                            complete: function (xhr, textStatus) {
+
+                            }
+                        });
+
+                        $.ajax({
+                            url: "getCrie.php",
+                            data: {
+                                id: $(this).data("id")
+                            },
+                            type: 'POST',
+                            dataType: 'json',
+                            beforeSend: function (xhr) {
+                                $("#details").hide();
+                                $("#loading_icon").show();
+                            },
+                            success: function (data) {
+                                $("#loading_icon").hide();
+                                if (data) {
+                                    $("#verbe").text(data.verbe);
+                                    $("#sens").text(data.sens);
                                 }
                                 $("#details").show();
                             },
