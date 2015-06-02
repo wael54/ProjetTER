@@ -96,7 +96,7 @@
 
 			$retour['verbe'] = $result['VERBE'];
 			$retour['description'] = $result['DESCRIPTION'];
-			$retour['validite'] = ($suggestion == NULL) ? "oui" : "non";
+			$retour['validite'] = ($suggestion == NULL) ? " Pas d'erreur" : " Erreur détécté";
 
 			return $retour;
 		}

@@ -20,15 +20,14 @@ foreach ($decomposition_text as $mot) {
     if (($result = $connexion_animaux->getId($mot)) !== FALSE) { // Le mot est présent dans animal_tree
         $retour .= "<span class=\"highlighted\" data-id=\"" . $result . "\">" . htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . "</span> ";
         $last_id_found = $result;
-    }
-    else if (($result = $connexion_verbes->getId($mot)) !== FALSE && $last_id_found != NULL)  { // Le verbe est présent dans la base
+    } else if (($result = $connexion_verbes->getId($mot)) !== FALSE && $last_id_found != NULL) { // Le verbe est présent dans la base
         $isValid = $connexion_verbes->validate($result, $last_id_found);
         if ($isValid === TRUE)
             $retour .= "<span class=\"highlighted-verb\" data-id=\"" . $result . "\">" . htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . "</span> ";
         else if ($isValid === FALSE)
             $retour .= htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . " ";
         else
-            $retour .= "<span class=\"highlighted-verb\" data-id=\"" . $result . "\" data-suggest=\"".$isValid."\">" . htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . "</span> ";
+            $retour .= "<span class=\"highlighted-verb\" data-id=\"" . $result . "\" data-suggest=\"" . $isValid . "\">" . htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . "</span> ";
     }
     else { // On reporte le mot sans le souligner
         $retour .= htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . " ";
@@ -70,70 +69,88 @@ foreach ($decomposition_text as $mot) {
         <div class="grid">
 
             <div class="col_12">
+
                 <h5 class="strong">Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br/>
-                    Les mots surlignés en <span class="highlighted">vert</span> concerne les noms du domaine animal.<br/>
-                    Les mots surlignés en <span class="highlighted-verb">bleu</span> concerne les verbes du domaine animal (si association trouvée).</p>
-                    
-               <hr class="alt2" /> 
-               <div class="col_8">                   
-               <div class="center">
-                  <ul class="button-bar">
-                    <li><a href="analyse.php"><i class="fa fa-pencil"></i> Modifier</a></li>
-                    <li><a href="analyse.php"><i class="fa fa-file-text"></i> Nouveau traitement</a></li>
-                   </ul>
-               </div>
-				</div>
+
+                <hr class="alt2" /> 
+                <div class="col_8"> 
+                    <div class="center">
+                        <ul class="button-bar">
+                            <li><a href="analyse.php"><i class="fa fa-pencil"></i> Modifier</a></li>
+                            <li><a href="analyse.php"><i class="fa fa-file-text"></i> Nouveau traitement</a></li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="col_6 barredroite">     
-                  <h6 class="strong">Texte analysé :</h6>
+                    <h6 class="strong">Texte analysé :</h6>
                     <?= $retour ?>
                 </div>
 
                 <div class="col_5" id="container_result">
-                    <h6 class="strong">Résultat :</h6>
-                        <div id="nodetails">
-                            <i class="fa fa-hand-o-up"></i> Cliquez sur un élément pour afficher plus de détails
-                        </div>
-                        <div id="loading_icon" style="display: none">
-                            <img src="img/ajax-loader.gif" alt="Chargement."/>
-                        </div>
-                        <div id="details-noun" style="display: none">
-                            <h5 id="nom"></h5>
-                            <p>Type : <span id="type"></span></p>
-                            <p>Description : <span id="descriptionN"></span></p>
-                        </div>
-                        <div id="details-verb" style="display: none">
-                            <h5 id="verbe"></h5>
-                            <p>Description : <span id="descriptionV"></span></p>
-                            <p>Valide? : <span id="validation"></span></p>
-                            <p id="suggestion"></p>
-                        </div>
+                    <h5 class="warning">Important:</h5>
+                    <ul class="alt">
+                        <li>Les mots surlignés en <span class="highlighted">vert</span> concernent les noms du domaine animal.<br/></li>
+                        <li>Les mots surlignés en <span class="highlighted-verb">bleu</span> concernent les verbes du domaine animal <strong>(si association trouvée)</strong>.</li>                    
+                    </ul>
+                    <hr class="alt1">
+                    <h5 class="strong">Résultat :</h5>
+                    <div id="nodetails">
+                        <i class="fa fa-hand-o-up"></i> Cliquez sur un élément pour afficher plus de détails
+                    </div>
+                    <div id="loading_icon" style="display: none">
+                        <img src="img/ajax-loader.gif" alt="Chargement."/>
+                    </div>
+                    <div id="details-noun" style="display: none">
+                        <strong><h4 id="nom"></h4></strong>
+                        <ul class="alt">
+                            <li><p>Type : <strong><span id="type"></span></strong></p></li>
+                            <li><p>Description : <strong><span id="descriptionN"></span></strong></p></li>
+                        </ul>
+                    </div>
+
+                    <div id="details-verb" style="display: none">
+                        <ul class="alt">  
+                            <h5 id="verbe"></h5> 
+                            <li><p><strong>Description :</strong>
+                                <div class="notice warning"><i class="icon-warning-sign icon-large"></i>
+                                    <strong class="black"><span id="descriptionV"></span> </strong>
+                                    </a>
+                                </div>
+                                </p>
+                            </li>
+                            <li><p> <strong>Erreur semantique et syntaxique:</strong>
+                                <div class="notice warning"><i class="icon-warning-sign icon-large"></i>
+                                    <strong class="black"><span id="validation"></span> </strong>
+                                    </a>
+                                </div>
+                                </p>
+                            </li>
+                            <li> <p> <strong>Suggestion:</strong>
+                                <div class="notice success"><i class="icon-warning-sign icon-large"></i>
+                                    <strong class="black"><p id="suggestion"></strong>
+                                    </p>
+                            </li>
+                    </div>
+                    </p>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-            <div class="col_12">
-            </div>
+        <div class="col_12">
+        </div>
+        <hr class="alt2" /> 
+        <div class="clear">
+        </div>
+        <div id="footer">
+            Aix Marseille Université - Faculté des sciences de Luminy<br>
+            Master informatique
+        </div>
 
-            <div class="clear">
-            </div>
-            <div id="footer">
-                Aix Marseille Université - Faculté des sciences de Luminy<br>
-                Master informatique
-            </div>
-
-            <script type="text/javascript" src="js/ajax_queries_animals.js"></script>
+        <script type="text/javascript" src="js/ajax_queries_animals.js"></script>
 
     </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
