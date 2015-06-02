@@ -1,5 +1,6 @@
 <?php
-
+	/* Classe pour manipuler la table animal_tree */
+	
 	class animal_tree
 	{
 		private $pdo; 	// connexion à la Base de Données
