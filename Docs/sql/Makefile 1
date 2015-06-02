@@ -1,0 +1,14 @@
+.PHONY :xsl-sujet
+
+all: xsl-animauXML xsl-sql
+
+
+xsl-animauXML:
+			java -jar saxon9he.jar  DEM.xml  MotZOO.xsl > animaux.xml
+xsl-sql:
+			java -jar saxon9he.jar  animaux.xml  Motsql.xsl > Motsql.sql
+
+clean:
+	find ./ -name '*~' -exec rm '{}' \; -print -or -name ".*~" -exec rm {} \; -print
+	
+	
