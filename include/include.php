@@ -1,5 +1,4 @@
 <?php 
-
 // Base de données # Fichier de configuration
 define('DATABASE', 'mysql:host=localhost;dbname=animaux'); 
 define('LOGIN', 'root'); 
