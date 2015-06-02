@@ -10,16 +10,14 @@ if (!isset($_POST['text'])) {
 $text = htmlspecialchars($_POST['text']);
 
 $retour = "";
-$last_id_found = NULL;
+
 $decomposition_text = preg_split('/((\p{P}*\s+\p{P}*)|(^\p{P}+)|(\p{P}+$))/', strtolower($text), -1, PREG_SPLIT_NO_EMPTY);
 
 foreach ($decomposition_text as $mot) {
     if (($result = $connexion->getId($mot)) !== FALSE) { // Le mot est présent dans animal_tree
-        $retour .= "<span class=\"highlighted\" data-id=\"" . $result . "\">" . htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . "</span> ";
-        $last_id_found = $result;
-    }
-    else { // On reporte le mot sans le souligner
-        $retour .= htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . " ";
+        $retour .= "<span class=\"highlighted\" data-id=\"" . $result . "\">" . $mot . "</span> ";
+    } else { // On reporte le mot sans le souligner
+        $retour .= htmlentities($mot) . " ";
     }
 }
 ?>
@@ -61,36 +59,35 @@ foreach ($decomposition_text as $mot) {
                 <h5 class="strong">Analyse du texte :</h5>
                 <p style='font-style:italic'>Cliquez sur un mot pour obtenir une annotation détaillée.<br>
                     Les mots surlignés en <span class="highlighted">vert</span> concerne le domaine animal.</p>
-                    
-               <hr class="alt2" /> 
-               <div class="col_8">                   
-               <div class="center">
-                  <ul class="button-bar">
-                    <li><a href="analyse.php"><i class="fa fa-pencil"></i> Modifier</a></li>
-                    <li><a href="analyse.php"><i class="fa fa-file-text"></i> Nouveau traitement</a></li>
-                   </ul>
-               </div>
-				</div>
 
-                <div class="col_6 barredroite">     
-                  <h6 class="strong">Texte analysé :</h6>
+                <hr class="alt2" />
+                <div class="col_8">
+                    <div class="center">
+                        <ul class="button-bar">
+                            <li><a href="analyse.php"><i class="fa fa-pencil"></i> Modifier</a></li>
+                            <li><a href="analyse.php"><i class="fa fa-file-text"></i> Nouveau traitement</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col_6 barredroite">
+                    <h6 class="strong">Texte analysé :</h6>
                     <?= $retour ?>
                 </div>
 
                 <div class="col_5" id="container_result">
                     <h6 class="strong">Résultat :</h6>
-                        <div id="nodetails">
-                            <i class="fa fa-hand-o-up"></i> Cliquez sur un élément pour afficher plus de détails
-                        </div>
-                        <div id="loading_icon" style="display: none">
-                            <img src="img/ajax-loader.gif" alt="Chargement."/>
-                        </div>
-                        <div id="details" style="display: none">
-                            <h5 id="nom"></h5>
-                            <p>Type : <span id="type"></span></p>
-                            <p>Description : <span id="description"></span></p>
-                        </div>
-
+                    <div id="nodetails">
+                        <i class="fa fa-hand-o-up"></i> Cliquez sur un élément pour afficher plus de détails
+                    </div>
+                    <div id="loading_icon" style="display: none">
+                        <img src="img/ajax-loader.gif" alt="Chargement."/>
+                    </div>
+                    <div id="details" style="display: none">
+                        <h5 id="nom"></h5>
+                        <p>Type : <span id="type"></span></p>
+                        <p>Description : <span id="description"></span></p>
+                    </div>
                 </div>
             </div>
 
