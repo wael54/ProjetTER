@@ -10,66 +10,70 @@ require (get_include_path().'/include/include.php');
 
 $conn = new animal_tree();
 // Insertion de la base de l'arbre animal (division vertébrés/invertébrés)
-$conn->insert(1, array("animal", "être vivant,bête"));
-$conn->insert(2, array("invertébré", "animal ss vertèbre"));
-$conn->insert(4, array("vertébré", "pourvu de vertèbres"));
+$conn->insert(1, array("animal", "être vivant,bête", "M1a1"));
+$conn->insert(2, array("invertébré", "animal ss vertèbre", "H1a1"));
+$conn->insert(4, array("vertébré", "pourvu de vertèbres", "cn"));
 
 /* Insertion dans l'arbre des sous-classes directes */
-$invertebres = array("insecte"=> "animal invertébré", "mollusque"=>"animal à corps mou");
-$vertebres = array("mammifère"=>"av mamelles,vivipare", "oiseau"=>"vertébré ovipare", "poisson" => "vertébré aquatiq", "reptile"=>"tétrapode amniote");
+$invertebres = array("insecte"	=> array("animal invertébré", "S3j1"), 
+					 "mollusque"=> array("animal à corps mou", "M1a1"));
+$vertebres = array("mammifère"	=> array("av mamelles,vivipare", "S3j1"), 
+					"oiseau"	=> array("vertébré ovipare", "C1a1"), 
+					"poisson"	=> array("vertébré aquatiq", "M1a1"), 
+					"reptile"	=> array("tétrapode amniote", "M1a1"));
 
 foreach($invertebres as $key=>$value)
 {
 	$borne_droite = $conn->getBorneDroite(2);
-	$conn->insert($borne_droite, array($key, $value));
+	$conn->insert($borne_droite, array($key, $value[0], $value[1]));
 }
 
 foreach ($vertebres as $key => $value) 
 {
 	$borne_droite = $conn->getBorneDroite(3);
-	$conn->insert($borne_droite, array($key, $value));
+	$conn->insert($borne_droite, array($key, $value[0], $value[1]));
 }
 
 /* Insertion des familles de mammifères */
-$sub_mammifere = array("bovidé" => "tel bovin,ovin,antilope",
-				"camélidé" => "tel chameau,lama",
-				"canidé" => "tel chien,loup",
-				"équidé" => "tel cheval,âne,zèbre",
-				"félidé" => "tel chat,tigre,félin",
-				"simien" => "colobidé,singe",
-				"suidé" => "tel porc,sanglier",
-				"ursidé" => "plantigrade tel ours",
-				"cétacé" => "tel baleine,cachalot",
-				"ongulé" => "q a sabots,cheval,rhino",
-				"ovin" => "ovidé,tel mouton,brebis",
-				"rhinocérotidé" => "rhinocéros",
-				"cervidé" => "cervidé tel cerf",
-				"carnassier" => "animal q ali viande",
-				"herbivore" => "q ali végétaux",
-				"omnivore" => "q mange tt aliment",
-				"marsupial" => "métathérien,tel koala",
-				"hyénidé" => "tel hyène,protèle", 
-				"monotrème" => "an tel ornithorynque");
+$sub_mammifere = array("bovidé" => array("tel bovin,ovin,antilope", "C1a1"),
+				"camélidé" 		=> array("tel chameau,lama","C1a1"),
+				"canidé" 		=> array("tel chien,loup","C1a1"),
+				"équidé" 		=> array("tel cheval,âne,zèbre", "C1a1"),
+				"félidé" 		=> array("tel chat,tigre,félin", "C1a1"),
+				"simien" 		=> array("colobidé,singe", "C1a1"),
+				"suidé" 		=> array("tel porc,sanglier", "C1a1"),
+				"ursidé" 		=> array("plantigrade tel ours", "C1a1"),
+				"cétacé" 		=> array("tel baleine,cachalot", "M1a1"),
+				"ongulé" 		=> array("q a sabots,cheval,rhino", "M1a1"),
+				"ovin" 			=> array("ovidé,tel mouton,brebis", "C1a1"),
+				"rhinocérotidé" => array("rhinocéros", "C1a1"),
+				"cervidé" 		=> array("cervidé tel cerf", "C1a1"),
+				"carnassier" 	=> array("animal q ali viande", "S3j1"),
+				"herbivore"		=> array("q ali végétaux", "S3j1"),
+				"omnivore" 		=> array("q mange tt aliment", "S3j1"),
+				"marsupial" 	=> array("métathérien,tel koala", "H1c1"),
+				"hyénidé" 		=> array("tel hyène,protèle", "C1a1"), 
+				"monotrème" 	=> array("an tel ornithorynque", "H1c1"));
 
 $id_mam = $conn->getId('mammifère');
 foreach ($sub_mammifere as $key => $value) 
 {
 	$borne_droite = $conn->getBorneDroite($id_mam);
-	$conn->insert($borne_droite, array($key, $value));
+	$conn->insert($borne_droite, array($key, $value[0], $value[1]));
 }
 
 /* Insertion des familles de reptiles */
-$sub_reptile = array("amphibien" => "vertébré tétrapode ds eau et air");
+$sub_reptile = array("amphibien" => array("vertébré tétrapode ds eau et air", "M1a1"));
 
 $id_rep = $conn->getId('reptile');
 foreach ($sub_reptile as $key => $value) 
 {
 	$borne_droite = $conn->getBorneDroite($id_rep);
-	$conn->insert($borne_droite, array($key, $value));
+	$conn->insert($borne_droite, array($key, $value[0], $value[1]));
 }
 
 /*Insertion des mots du fichier CSV */
-if (($handle = fopen("file_2.csv", "r")) !== FALSE) {
+if (($handle = fopen("animaux.csv", "r")) !== FALSE) {
 
 	$id_categories = array();
 	$id_categories["insecte"] = $conn->getId("insecte");
@@ -101,8 +105,10 @@ if (($handle = fopen("file_2.csv", "r")) !== FALSE) {
 					"mono" => $conn->getId("monotrème"));
 
 	$id_reptiles = array("amph" => $conn->getId("amphibien"));
+	/* Si problème de limite de temps d'execution */
+	set_time_limit(0);
 
-	while (($mot = fgetcsv($handle, 0, ",")) !== FALSE) {
+	while (($mot = fgetcsv($handle, 0, ";")) !== FALSE) {
 		$id = NULL;
 		switch($mot[1]) {
 			case "Insecte":
@@ -132,9 +138,7 @@ if (($handle = fopen("file_2.csv", "r")) !== FALSE) {
 		}
 
 		$borne_droite =  $conn->getBorneDroite($id);
-		$conn->insert($borne_droite, array($mot[0], $mot[3]));
-		/* Si problème de limite de temps d'execution */
-		set_time_limit(30);
+		$conn->insert($borne_droite, array($mot[0], $mot[3], $mot[4]));
 	}
 	echo "Insertions réussies.";
 }

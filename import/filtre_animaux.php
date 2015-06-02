@@ -1,7 +1,10 @@
 <?php
+
+/* Filtre pour les animaux depuis le DEM */
+
 header('Content-Type: text/html; charset=UTF-8');
 
-if (($handle = fopen("source_mots.csv", "r")) !== FALSE) {
+if (($handle = fopen("source.csv", "r")) !== FALSE) {
 	$mots_animaux = array();
 	$current_class;
 	
@@ -16,10 +19,11 @@ if (($handle = fopen("source_mots.csv", "r")) !== FALSE) {
 		}
 	}
 	
-	$fp = fopen('file.csv', 'w');
+	$fp = fopen('animaux.csv', 'w');
 	foreach($mots_animaux as $classe) {
 		foreach ($classe as $fields) {
-		  fputcsv($fp, $fields);
+			$fields = array_map("utf8_encode", $fields);
+			fputcsv($fp, $fields);
 		}
 	}
 
