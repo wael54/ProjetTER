@@ -43,3 +43,25 @@ TODO :
 
 10- SITE DU PROJET:
 	- Page Analyse.php: Site de l'application						----------->EN COURS (A voir de plus près)
+	
+	_____________________________________________________________________________________________________________________
+	
+	
+1) Ameliorer la suggestion de verbe ( en mettre plusieurs ci-possible)
+
+2) Implémentez la base conjugaison (lien entre verbe et conjugaison)
+
+3) 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
