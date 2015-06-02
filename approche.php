@@ -35,7 +35,7 @@
                 <blockquote class="small" >
                     <p>Le sujet s’inscrit dans le domaine de la formalisation et du traitement des langues naturelles. Il s’intéresse en priorité à l’évaluation sémantique des mots rencontrés dans un texte écrit en français.</p><p> L'application analyse les mots en fonction d’une description déjà définie dans le <code>domaine animal</code>.</p>
                     <p>En d’autres termes, chaque mot a son étiquette sémantique dans le but de pouvoir évaluer ensuite la sémantique des phrases entières voire du texte tout entier.
-                    <p>L'application a été développé en <code>PHP/Mysql</code></p>
+                    <p>L'application a été developpé en <code>PHP/Mysql</code></p>
                 </blockquote>
             </div>
             <div class="col_6">

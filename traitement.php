@@ -10,14 +10,16 @@ if (!isset($_POST['text'])) {
 $text = htmlspecialchars($_POST['text']);
 
 $retour = "";
-
+$last_id_found = NULL;
 $decomposition_text = preg_split('/((\p{P}*\s+\p{P}*)|(^\p{P}+)|(\p{P}+$))/', strtolower($text), -1, PREG_SPLIT_NO_EMPTY);
 
 foreach ($decomposition_text as $mot) {
     if (($result = $connexion->getId($mot)) !== FALSE) { // Le mot est présent dans animal_tree
-        $retour .= "<span class=\"highlighted\" data-id=\"" . $result . "\">" . $mot . "</span> ";
-    } else { // On reporte le mot sans le souligner
-        $retour .= htmlentities($mot) . " ";
+        $retour .= "<span class=\"highlighted\" data-id=\"" . $result . "\">" . htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . "</span> ";
+        $last_id_found = $result;
+    }
+    else { // On reporte le mot sans le souligner
+        $retour .= htmlspecialchars($mot, ENT_NOQUOTES, 'utf-8') . " ";
     }
 }
 ?>

@@ -34,7 +34,7 @@
 				  <h5>Waël KOUJUK </h5>
 				</div>
 				<div class="col_4">
-					<h5>Lucien KERISIT </h5>
+					<h5>Lucien KERISIT  </h5>
 				</div>
 				<div class="col_4">
 				   <h5>Patty RANDRIAMBOLOLONA </h5>
