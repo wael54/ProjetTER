@@ -26,8 +26,7 @@
 				$this->pdo->beginTransaction();
 				$this->pdo->query("UPDATE ANIMAL_TREE SET BD = BD + 2 WHERE BD >= ".$borne_droite);
 				$this->pdo->query("UPDATE ANIMAL_TREE SET BG = BG + 2 WHERE BG >= ".$borne_droite);
-				$this->pdo->query("INSERT INTO ANIMAL_TREE (BG, BD, NOM, DESCRIPTION, OP1) 
-								   VALUES (".$borne_droite.", ".($borne_droite+1).", \"".$tuple[0]."\", \"".$tuple[1]."\", \"".$tuple[2]."\")");
+				$this->pdo->query("INSERT INTO ANIMAL_TREE (BG, BD, NOM, DESCRIPTION) VALUES (".$borne_droite.", ".($borne_droite+1).", \"".$tuple[0]."\", \"".$tuple[1]."\")");
     			$this->pdo->commit();
     			return TRUE;
 			}
