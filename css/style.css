@@ -159,6 +159,11 @@ a.callout{cursor:pointer;}
     cursor:pointer;
 }
 
+.highlighted-verb {
+    background-color: #9cc;
+    cursor:pointer;
+}
+
 .strong {
     font-weight: bold;
 }

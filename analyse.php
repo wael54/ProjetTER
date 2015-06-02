@@ -1,22 +1,22 @@
 <!--CONNEXION A LA BASE DE DONNEES ANIMAUX-->
 <?php
 session_start();
-require_once('include/include.php');
+require_once('include/include.php'); 
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Projet TER</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="" />
-        <meta name="copyright" content="" />
-        <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />                          <!-- CUSTOM STYLES -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
-    </head>
+	<head>
+		<title>Projet TER</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="copyright" content="" />
+		<link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />                          <!-- CUSTOM STYLES -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
+	</head>
     <body>
         <!-- Menu Horizontal -->
         <ul class="menu">
@@ -39,7 +39,7 @@ require_once('include/include.php');
 
             <div class="col_12">
                 <h5 class="strong">Analyse de texte :</h5>
-                <p>Important: L'application surligne uniquement les mots du <code>domaine animal</code>.</p>
+                <p>Important: il est impératif que le texte comprenne des mots du <code>domaine animal</code>.</p>
                 <p>Exemple: le chat miaule</p>
                 <hr />
                 <div class="col_7">
@@ -60,6 +60,6 @@ require_once('include/include.php');
                 Aix Marseille Université - Faculté des sciences de Luminy<br>
                 Master informatique
             </div
-        </div>
+		</div>
     </body>
 </html>
