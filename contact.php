@@ -31,7 +31,7 @@
             <h4>Projet présenté par:</h4>
             <div class="col_12"  style="text-align:center">
                 <div class="col_4">
-                    <h5>Waël KOUJUK </h5>
+                    <h5></h5>
                 </div>
                 <div class="col_4">
                     <h5>Lucien KERISIT </h5>
